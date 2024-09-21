@@ -28,9 +28,14 @@ urlpatterns = [
     path('complete/', complete_views.complete_list),
     path('complete/<int:pk>', complete_views.complete_detail),
     
-    re_path('login', users_views.login), 
-    re_path('signup', users_views.signup),
-    re_path('test_token', users_views.test_token),
+    # re_path('login', users_views.login), 
+    # re_path('signup', users_views.signup),
+    # re_path('test_token', users_views.test_token),
+    
+    path("", views.index, name="index"),
+    path("login", views.login, name="login"),
+    path("logout", views.logout, name="logout"),
+    path("callback", views.callback, name="callback"),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

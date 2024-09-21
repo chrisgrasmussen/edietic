@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv, find_dotenv
 import environ
 
 env = environ.Env()
@@ -149,3 +150,12 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+ALLOWED_CALLBACK_URLS = "http://localhost:3000/callback"
+ALLOWED_LOGOUT_URLS = "http://localhost:3000"
+
+# Load Auth0 application settings into memory
+
+AUTH0_DOMAIN = os.environ.get("dev-umujrchjm8pvfivy.us.auth0.comN")
+AUTH0_CLIENT_ID = os.environ.get("YyMRVyYEnZuH7J7adokwSDNxVZoxakgX")
+AUTH0_CLIENT_SECRET = os.environ.get("11AN8h7MIB1mmOY505o3h7m9WI5pSLAb4lhg1dw2m_841OQkpSgRTRe4MgVKoYPg")
