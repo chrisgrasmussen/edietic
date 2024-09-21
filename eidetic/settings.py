@@ -49,8 +49,8 @@ INSTALLED_APPS = [
     'complete',
     'users',
     'rest_framework',
-    'rest_framework.authtoken',
     'corsheaders',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -67,8 +67,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOWED_ORIGINS = ['http://localhost:5173', 'https://eidetic-app.onrender.com']
-
+CORS_ALLOWED_ORIGINS = ['http://localhost:5173', 'https://eidetic.onrender.com']
 
 ROOT_URLCONF = 'eidetic.urls'
 
@@ -151,8 +150,6 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-ALLOWED_CALLBACK_URLS = "http://localhost:8000/callback"
-ALLOWED_LOGOUT_URLS = "http://localhost:8000"
 
 # Load Auth0 application settings into memory
 
