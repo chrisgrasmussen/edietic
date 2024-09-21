@@ -22,8 +22,8 @@ def start_list(request, format=None):
         serializer = StartSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return JsonResponse(serializer.data, status=201)
-        return JsonResponse(serializer.errors, status=400)
+            return Response(serializer.data, status=201)
+        return Response(serializer.errors, status=400)
 
 @api_view(['GET', 'PUT', 'DELETE'])
 def start_detail(request, pk, format=None):
