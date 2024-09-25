@@ -33,9 +33,9 @@ urlpatterns = [
     # re_path('test_token', users_views.test_token),
     
     path("", views.index, name="index"),
-    path("login", views.login, name="login"),
-    path("logout", views.logout, name="logout"),
-    path("callback", views.callback, name="callback"),
+    path("login/", views.login, name="login"),
+    path("logout/", views.logout, name="logout"),
+    path("callback/", views.callback, name="callback"),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

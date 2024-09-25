@@ -6,13 +6,6 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 
-import json
-from authlib.integrations.django_client import OAuth
-from django.conf import settings
-from django.shortcuts import redirect, render
-from django.urls import reverse
-from urllib.parse import quote_plus, urlencode
-
 @api_view(['GET', 'POST'])
 def start_list(request, format=None):
     
@@ -53,6 +46,13 @@ def start_detail(request, pk, format=None):
         start.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
+import json
+from authlib.integrations.django_client import OAuth
+from django.conf import settings
+from django.shortcuts import redirect, render, redirect
+from django.urls import reverse
+from urllib.parse import quote_plus, urlencode
+
 oauth = OAuth()
 
 oauth.register(
@@ -73,7 +73,6 @@ def login(request):
 def callback(request):
     token = oauth.auth0.authorize_access_token(request)
     request.session["user"] = token
-    print("Authorization successful")
     return redirect(request.build_absolute_uri(reverse("index")))
 
 def logout(request):
